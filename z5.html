@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 5 - Potęgowanie</title>
+    <script>
+        function losuj() {
+            var pierwszaLiczba = Math.floor(Math.random() * 10) + 1;
+            var drugaLiczba = Math.floor(Math.random() * 3) + 1;
+            var wynikPotegowania = Math.pow(pierwszaLiczba, drugaLiczba);
+            document.getElementById("los").innerHTML = "Podaj wynik potęgowania: " + pierwszaLiczba + " ^ " + drugaLiczba + " = ?";
+            sessionStorage.setItem('pierwszaLiczba', pierwszaLiczba);
+            sessionStorage.setItem('drugaLiczba', drugaLiczba);
+        }
+
+        function sprawdz() {
+            var odpowiedz = document.getElementById("odpowiedz").value;
+            var pierwszaLiczba = sessionStorage.getItem('pierwszaLiczba');
+            var drugaLiczba = sessionStorage.getItem('drugaLiczba');
+            var poprawnaOdpowiedz = Math.pow(parseInt(pierwszaLiczba), parseInt(drugaLiczba));
+            if (odpowiedz == poprawnaOdpowiedz) {
+                document.getElementById("wynik").innerHTML = "Odpowiedź poprawna!";
+            } else {
+                document.getElementById("wynik").innerHTML = "Odpowiedź błędna. Spróbuj jeszcze raz.";
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        button {
+            width: 10%;
+        }
+    </style>
+</head>
+<body style="background-image: url('z1.jpg');">
+    <header>
+        <h1>Zadanie 5 - Potęgowanie</h1>
+    </header>
+    <p>Witaj na stronie z zadaniem 5!</p>
+    <div id="los"></div><br>
+    <form>
+        <input type="number" id="odpowiedz" placeholder="Podaj wynik potęgowania">
+        <button type="button" onclick="losuj()">LOSUJ</button><br>
+    </form><br><br>
+    <button type="button" onclick="sprawdz()">SPRAWDŹ</button><br><br>
+    <div id="wynik"></div>
+    <footer>
+        <p>Stanisław Przyborowski &copy;</p>
+        <a href="index.html">STRONA GŁÓWNA</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witryna matematyczna</title>
+    <script src="skrypt1.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .neon-clock {
+            color: #00FFFF; /* neon blue */
+            font-size: 2em;
+            margin-top: 20px;
+            text-align: center;
+            font-family: "Arial", sans-serif;
+        }
+    </style>
+</head>
+<body style="background-image: url('z1.jpg');">
+    <header>
+        <h1>Witaj na witrynie matematycznej!</h1>
+    </header>
+    <nav>
+        <ul style="list-style-type: none; padding: 0; margin-top: 17%;">
+            <li style="margin-bottom: 10px;"><a href="z1.html">Zadanie 1</a></li>
+            <li style="margin-bottom: 10px;"><a href="z2.html">Zadanie 2</a></li>
+            <li style="margin-bottom: 10px;"><a href="z3.html">Zadanie 3</a></li>
+            <li style="margin-bottom: 10px;"><a href="z4.html">Zadanie 4</a></li>
+            <li style="margin-bottom: 10px;"><a href="z5.html">Zadanie 5</a></li>
+        </ul>
+    </nav>
+    <div class="neon-clock" id="neonClock"></div>
+    <footer>
+        <p>Stanisław Przyborowski &copy;</p>
+    </footer>
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var timeString = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+            document.getElementById('neonClock').textContent = timeString;
+            setTimeout(updateClock, 1000);
+        }
+        updateClock();
+    </script>
+</body>
+</html>
